@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Task Management</title>
+    <link rel="stylesheet" href="/styles/index.css" />
+  </head>
+  <body>
+    <section>
+      <h2>Task Management</h2>
+      <h3>Join Us!</h3>
+
+      <div class="container">
+        <form id="registerForm">
+          <label for="email">Email:</label><br />
+          <input type="email" id="email" name="email" /><span
+            class="emailError"
+          ></span
+          ><br />
+          <label for="pwd">Password:</label><br />
+          <input type="password" id="pwd" name="pwd" /><span
+            class="passwordError"
+          ></span
+          ><br />
+          <label for="confirm-pwd">Confirm Password:</label><br />
+          <input type="password" id="confirm-pwd" name="confirm-pwd" />
+          <span class="confirmPasswordError"></span><br /><br />
+          <input type="submit" value="Register" />
+        </form>
+        <p>Already have an account? <a href="./index.html">Click here!</a></p>
+      </div>
+    </section>
+  </body>
+  <script src="./scripts/register.js"></script>
+</html>

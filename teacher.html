@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Teacher Dashboard</title>
+    <style>
+      #sidebar {
+        position: fixed;
+        width: 200px;
+        height: 100%;
+        background: #333;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 15px 0;
+      }
+      #sidebar a {
+        color: #fff;
+        text-decoration: none;
+        padding: 15px;
+        display: block;
+      }
+      #main-content {
+        margin-left: 200px;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sidebar">
+      <a href="#" onclick="displayTasks()">Tasks</a>
+      <a href="#" onclick="displayStudents()">Students</a>
+    </div>
+    <div id="main-content">
+      <!-- Content will be displayed here based on the sidebar selection -->
+    </div>
+    <script>
+      function displayTasks() {
+        document.getElementById("main-content").innerHTML = `
+                <h2>Create Task</h2>
+                <!-- Form or interface for creating a task -->
+                <h2>Current Tasks</h2>
+                <!-- List of current tasks -->
+                <h2>Finished Tasks</h2>
+                <!-- List of finished tasks -->
+            `;
+      }
+      function displayStudents() {
+        document.getElementById("main-content").innerHTML = `
+                <h2>Students</h2>
+                <!-- List of students -->
+            `;
+      }
+    </script>
+  </body>
+</html>
