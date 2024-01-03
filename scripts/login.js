@@ -32,8 +32,12 @@ document
       if (foundUser) {
         if (foundUser.role === "teacher") {
           window.location.href = "./teacher.html"; // Redirect to teacher page for a valid teacher login
-        } else {
+        } else if (foundUser.role === "student") {
           window.location.href = "./student.html"; // Redirect to student page for a valid student login
+        } else {
+          document.getElementById("loginError").textContent =
+            "Invalid role assigned"; // Handle other roles or unexpected scenarios
+          document.getElementById("loginError").style.color = "red";
         }
       } else {
         document.getElementById("loginError").textContent =

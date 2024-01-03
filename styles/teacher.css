@@ -1,0 +1,119 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #b0c4de; /* Light Steel Blue */
+  color: #fff; /* White text */
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+#sidebar {
+  position: fixed;
+  width: 200px;
+  background: #333;
+  color: #fff;
+  padding: 15px 0;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+#sidebar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+}
+#main-content {
+  margin-left: 200px; /* Account for sidebar width */
+  padding: 15px;
+  flex: 1;
+}
+
+#logoutButton {
+  margin-top: auto; /* Push the logout button to the bottom of the sidebar */
+  cursor: pointer;
+  padding: 15px;
+  text-align: center;
+  background-color: #f44336;
+}
+
+section {
+  background-color: #222; /* Soft Purple */
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+h2 {
+  margin-bottom: 10px;
+  margin-top: 0;
+  text-align: center;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+#createTaskButton {
+  background-color: #555; /* Metal Black */
+  color: #fff; /* White text */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.closeButton {
+  background-color: #f44336; /* Red */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+#taskForm {
+  position: relative;
+}
+#taskForm h2 {
+  position: relative;
+}
+
+form {
+  background-color: #222; /* Soft Purple */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 20px auto; /* Added margin for centering */
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="text"],
+textarea,
+input[type="date"],
+input[type="file"],
+input[type="submit"] {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: none;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  background-color: #555; /* Metal Black */
+  color: #fff; /* White text */
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #333; /* Darker Metal Black */
+}

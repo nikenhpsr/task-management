@@ -3,48 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <title>Teacher Dashboard</title>
-    <style>
-      #sidebar {
-        position: fixed;
-        width: 200px;
-        height: 100%;
-        background: #333;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        padding: 15px 0;
-      }
-      #sidebar a {
-        color: #fff;
-        text-decoration: none;
-        padding: 15px;
-        display: block;
-      }
-      #main-content {
-        margin-left: 200px;
-        padding: 15px;
-      }
-    </style>
+    <link rel="stylesheet" href="styles/teacher.css" />
   </head>
   <body>
     <div id="sidebar">
       <a href="#" onclick="displayTasks()">Tasks</a>
       <a href="#" onclick="displayStudents()">Students</a>
+      <div id="logoutButton" onclick="logout()">Logout</div>
     </div>
     <div id="main-content">
-      <!-- Content will be displayed here based on the sidebar selection -->
+      <button id="createTaskButton">Create Task</button>
+      <form id="taskForm" style="display: none">
+        <h2>
+          New Task
+          <button class="closeButton" type="button" onclick="closeForm()">
+            X
+          </button>
+        </h2>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required />
+
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          name="description"
+          rows="4"
+          required
+        ></textarea>
+
+        <label for="deadline">Deadline Date:</label>
+        <input type="date" id="deadline" name="deadline" required />
+
+        <label for="answer">Answer File:</label>
+        <input
+          type="file"
+          id="answer"
+          name="answer"
+          accept=".pdf,.doc,.docx,.txt"
+          required
+        />
+
+        <input type="submit" value="Create Task" />
+      </form>
     </div>
     <script>
-      function displayTasks() {
-        document.getElementById("main-content").innerHTML = `
-                <h2>Create Task</h2>
-                <!-- Form or interface for creating a task -->
-                <h2>Current Tasks</h2>
-                <!-- List of current tasks -->
-                <h2>Finished Tasks</h2>
-                <!-- List of finished tasks -->
-            `;
-      }
+      // function displayTasks() {
+      //   document.getElementById("main-content").innerHTML = `
+      //           <h2>Create Task</h2>
+      //           <!-- Form or interface for creating a task -->
+      //           <h2>Current Tasks</h2>
+      //           <!-- List of current tasks -->
+      //           <h2>Finished Tasks</h2>
+      //           <!-- List of finished tasks -->
+      //       `;
+      // }
       function displayStudents() {
         document.getElementById("main-content").innerHTML = `
                 <h2>Students</h2>
@@ -53,4 +65,5 @@
       }
     </script>
   </body>
+  <script src="./scripts/teacher.js"></script>
 </html>

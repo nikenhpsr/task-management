@@ -1,3 +1,6 @@
+const ROLE_TEACHER = "teacher";
+const ROLE_STUDENT = "student";
+
 document
   .getElementById("registerForm")
   .addEventListener("submit", function (event) {
@@ -24,6 +27,12 @@ document
       confirmPasswordErrorMessage = "Passwords do not match";
     }
 
+    // Check email domain to determine role
+    let userRole = ROLE_STUDENT; // Default role is student
+    if (email.endsWith(".ac.id")) {
+      userRole = ROLE_TEACHER;
+    }
+
     // Display error messages or register user
     if (
       !emailErrorMessage &&
@@ -37,8 +46,8 @@ document
       if (existingUser) {
         alert("Email already registered");
       } else {
-        // Register the new user
-        const newUser = { email, password };
+        // Register the new user with determined role
+        const newUser = { email, password, role: userRole };
         storedUsers.push(newUser);
         localStorage.setItem("users", JSON.stringify(storedUsers));
         alert("Registration successful!");

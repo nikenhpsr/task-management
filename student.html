@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles/student.css" />
+  </head>
+  <body>
+    <div id="sidebar">
+      <!-- Sidebar links for students -->
+      <a href="#" onclick="displayCurrentTasks()">Current Tasks</a>
+      <a href="#" onclick="displayPassedTasks()">Passed Tasks</a>
+      <div id="logoutButton" onclick="logout()">Logout</div>
+    </div>
+    <div id="main-content">
+      <!-- Content will be displayed here based on the sidebar selection -->
+      <!-- For displaying tasks -->
+      <div id="taskContent">
+        <!-- Initial content -->
+        <h2>Welcome to the Student Dashboard</h2>
+        <p>Please select a task category from the sidebar.</p>
+      </div>
+    </div>
+    <script>
+      function displayCurrentTasks() {
+        document.getElementById("taskContent").innerHTML = `
+        <h2>Current Tasks</h2>
+        <!-- List of current tasks for students -->
+        <!-- You can fetch and display tasks dynamically here -->
+      `;
+      }
+
+      function displayPassedTasks() {
+        document.getElementById("taskContent").innerHTML = `
+        <h2>Passed Tasks</h2>
+        <!-- List of passed tasks for students -->
+        <!-- You can fetch and display completed tasks here -->
+      `;
+      }
+    </script>
+  </body>
+  <script src="./scripts/student.js"></script>
+</html>
