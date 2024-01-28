@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id           String       @id @default(uuid())
+  title        String
+  description  String
+  deadlineDate DateTime
+  studentId    String
+  student      Student      @relation(fields: [studentId], references: [id])
+  teacherId    String
+  teacher      Teacher      @relation(fields: [teacherId], references: [id])
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  submissions  Submission[]
+}
+
+model Student {
+  id          String       @id @default(uuid())
+  tasks       Task[]
+  submissions Submission[]
+  User        User[]
+}
+
+model Teacher {
+  id          String       @id @default(uuid())
+  tasks       Task[]
+  submissions Submission[]
+  User        User[]
+}
+
+enum Role {
+  TEACHER
+  STUDENT
+}
+
+model User {
+  id       String @id @default(uuid())
+  email    String @unique
+  password String
+  role     Role
+  roleId   String
+
+  teacher Teacher? @relation(fields: [roleId], references: [id], map: "teacher_roleId_fkey")
+  student Student? @relation(fields: [roleId], references: [id], map: "student_roleId_fkey")
+}
+
+model Submission {
+  id        String   @id @default(uuid())
+  taskId    String
+  task      Task     @relation(fields: [taskId], references: [id])
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id])
+  teacherId String
+  teacher   Teacher  @relation(fields: [teacherId], references: [id])
+  grade     Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

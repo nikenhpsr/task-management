@@ -9,12 +9,12 @@ body {
 #sidebar {
   position: fixed;
   width: 200px;
+  height: 100%;
   background: #333;
   color: #fff;
+  display: flex;
+  flex-direction: column;
   padding: 15px 0;
-  height: 100vh;
-  left: 0;
-  top: 0;
 }
 #sidebar a {
   color: #fff;
